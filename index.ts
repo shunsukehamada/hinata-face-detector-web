@@ -76,17 +76,24 @@ predictButton.addEventListener("click", async () => {
             return;
         }
         displayLoader();
-        const controller = new AbortController();
-        setCancel(controller);
-        const file = files[0];
-        const imageUrl = await getImageUrl(file);
-        const image_base = imageUrl.replace(/data:.*\/.*;base64,/, "");
         try {
+            const controller = new AbortController();
+            setCancel(controller);
+            const file = files[0];
+            const imageUrl = await getImageUrl(file);
+            const headIndex = imageUrl.indexOf("base64,");
+            const image_base = imageUrl.slice(headIndex + "base64,".length);
             const predictions = await predict(image_base, controller);
             if (predictions.length === 0) {
                 alert("顔が検出できませんでした");
             }
             setPrediction(predictions, imageUrl);
+        } catch (err) {
+            if (err instanceof DOMException && err.name === "AbortError") {
+                console.error("キャンセルされました");
+            } else {
+                alert("予想外のエラーが起きました\nリロードしてやり直してください");
+            }
         } finally {
             hideLoader();
         }
