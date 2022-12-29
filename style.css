@@ -1,12 +1,100 @@
-body {
-    overflow: hidden;
-}
-#preview {
-    max-width: 500px;
-}
+@media (max-width: 750px) {
+    /* 横幅が320px以下の場合に適用するスタイル */
+    body {
+        overflow: scroll;
+    }
+    .preview-field {
+        width: 90%;
+    }
+    #preview {
+        max-width: 100%;
+    }
 
-.preview-field {
-    width: 500px;
+    .main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .input {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    #prediction {
+        flex: 1;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        min-width: 300px;
+    }
+
+    .predict-raw {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .predict-block {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 5px;
+    }
+}
+@media (min-width: 750px) {
+    /* 横幅が800px以上の場合に適用するスタイル */
+    body {
+        overflow: hidden;
+    }
+    .preview-field {
+        width: 500px;
+    }
+    #preview {
+        max-width: 500px;
+    }
+
+    .input {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .main {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #prediction {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        width: 180px;
+        padding: 0 10px 0 10px;
+        height: 90vh;
+        overflow-y: scroll;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    #prediction::-webkit-scrollbar {
+        display: none;
+    }
+
+    .predict-raw {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .predict-block {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 10px 15px;
+    }
 }
 
 .button {
@@ -20,47 +108,6 @@ body {
 .button span {
     font-size: large;
     font-weight: 700;
-}
-
-.input {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.main {
-    display: flex;
-    justify-content: space-between;
-}
-
-#prediction {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    width: 180px;
-    padding: 0 10px 0 10px;
-    height: 90vh;
-    overflow-y: scroll;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-#prediction::-webkit-scrollbar {
-    display: none;
-}
-
-.predict-raw {
-    display: flex;
-    justify-content: space-between;
-}
-
-.predict-block {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 10px 15px;
 }
 
 .loader {
