@@ -40,7 +40,7 @@ const previewImage = (imageUrl) => {
 };
 const predict = (image_base, controller) => __awaiter(void 0, void 0, void 0, function* () {
     const data = { image_base };
-    const res = yield fetch("http://127.0.0.1:5000/predict", {
+    const res = yield fetch("https://hinata-api-wecxp6wvdq-nn.a.run.app/predict", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
