@@ -57,7 +57,7 @@ const predict = async (
     controller?: AbortController
 ): Promise<PredictResponse[]> => {
     const data: RequestBody = { image_base };
-    const res = await fetch("https://hinata-api-wecxp6wvdq-nn.a.run.app/predict", {
+    const res = await fetch("https://hinata-api-qvs34z2bia-an.a.run.app/predict", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
